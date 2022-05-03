@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// REST API
 Route::get('tasks', [TaskController::class, 'getAllTasks']);
 Route::get('tasks/{id}', [TaskController::class, 'getTask']);
 Route::post('tasks', [TaskController::class, 'createTask']);
 Route::put('tasks/{id}', [TaskController::class, 'updateTask']);
 Route::delete('tasks/{id}', [TaskController::class, 'deleteTask']);
+
+// 画像アップロードAPI
+Route::post("upload", [FileController::class, 'upload']);
