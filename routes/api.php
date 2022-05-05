@@ -36,7 +36,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('tasks', [TaskController::class, 'createTask']);
     Route::put('tasks/{id}', [TaskController::class, 'updateTask']);
     Route::delete('tasks/{id}', [TaskController::class, 'deleteTask']);
+    // 画像アップロードAPI
+    Route::post("upload", [FileController::class, 'upload']);
 });
-
-// 画像アップロードAPI
-Route::post("upload", [FileController::class, 'upload']);
